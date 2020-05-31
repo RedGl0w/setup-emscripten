@@ -16,6 +16,7 @@ async function run() {
 
     await exec.exec('emsdk', ['install', sdk])
     await exec.exec('emsdk', ['activate', sdk])
+    await exec.exec('echo', [emSdk])
 
     const emConfPath = path.join(emSdk, '.emscripten')
     core.exportVariable('EM_CONFIG', emConfPath)
