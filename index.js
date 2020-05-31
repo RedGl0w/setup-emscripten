@@ -20,7 +20,7 @@ async function run() {
     const emConfPath = path.join(emSdk, '.emscripten')
     core.exportVariable('EM_CONFIG', emConfPath)
     const emConf = fs.readFileSync(emConfPath).toString()
-    await exec.exec('echo', ["\"" + emConf + "\""])
+    await exec.exec('cat', [emSdk + '.emscripten'])
     const emRoot = emConf.match(/EMSCRIPTEN_ROOT = '(.*)'/)[1]
     core.addPath(emRoot)
     const emNode = emConf.match(/NODE_JS = '(.*)'/)[1]
