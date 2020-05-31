@@ -1,0 +1,17 @@
+name: 'action'
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 0 * * 0,3' #Execute on sunday and wednesday at 0:00
+
+jobs:
+
+  addingAction :
+    runs-on: ubuntu-latest
+    steps :
+      - uses: actions/checkout@v1
+      - name : Install dependencies
+        run : npm ci
+      - name : Adding setup-workflows
+        uses : ./
