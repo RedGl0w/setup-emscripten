@@ -21,8 +21,9 @@ async function run() {
 /*     const emConfPath = path.join(emSdk, '.emscripten')
     core.exportVariable('EM_CONFIG', emConfPath)
     const emConf = fs.readFileSync(emConfPath).toString() */
+    await exec.exec('echo', ['$EM_CONFIG'])
     await exec.exec('echo', ['"' + process.env.EM_CONFIG + '"'])
-    /* const emRoot = emConf.match(/EMSCRIPTEN_ROOT = '(.*)'/)[1]
+/*     const emRoot = emConf.match(/EMSCRIPTEN_ROOT = '(.*)'/)[1]
     core.addPath(emRoot)
     const emNode = emConf.match(/NODE_JS = '(.*)'/)[1]
     core.exportVariable('EMSDK_NODE', emNode)
